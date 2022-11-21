@@ -15,31 +15,31 @@ let pageCount = 0;
 function App() {
   //Add and remove checked items in Relevance.jsx from the list updatedList
   const RelevantOnline = [
-    { name: gmail,
+    { name: "gmail",
     ticked: false},
-    { name: icloud,
+    { name: "icloud",
     ticked: false},
-    { name: onedrive,
+    { name: "onedrive",
     ticked: false},
-    { name: dropbox,
+    { name: "dropbox",
     ticked: false},
-    { name: tiktok,
+    { name: "tiktok",
     ticked: false},
-    { name: instagram,
+    { name: "instagram",
     ticked: false},
-    { name: facebook,
+    { name: "facebook",
     ticked: false},
-    { name: snapchat,
+    { name: "snapchat",
     ticked: false},
-    { name: twitter,
+    { name: "twitter",
     ticked: false},
-    { name: youtube,
+    { name: "youtube",
     ticked: false},
-    { name: pinterest,
+    { name: "pinterest",
     ticked: false},
-    { name: linkedin,
+    { name: "linkedin",
     ticked: false},
-    { name: reddit,
+    { name: "reddit",
     ticked: false},
   ];
   const [checked, setChecked] = useState([]);
@@ -69,7 +69,7 @@ function App() {
       <Header />
       {thisPage === 0 && <Landing />}
       {thisPage === 1 && <Ranking />}
-      {thisPage === 2 && <Relevance handleCheck={handleCheck} />}
+      {thisPage === 2 && <Relevance handleCheck={handleCheck} RelevantOnline={RelevantOnline}/>}
       {thisPage === 3 && <Storage />}
       {thisPage === 4 && <Screentime />}
       {thisPage === 5 && <NewPhone />}

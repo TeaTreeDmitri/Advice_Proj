@@ -13,10 +13,39 @@ import Storage from "./Pages/Storage";
 let pageCount = 0;
 
 function App() {
-  //Add and remove checked item from the list
+  //Add and remove checked items in Relevance.jsx from the list updatedList
+  const RelevantOnline = [
+    { name: gmail,
+    ticked: false},
+    { name: icloud,
+    ticked: false},
+    { name: onedrive,
+    ticked: false},
+    { name: dropbox,
+    ticked: false},
+    { name: tiktok,
+    ticked: false},
+    { name: instagram,
+    ticked: false},
+    { name: facebook,
+    ticked: false},
+    { name: snapchat,
+    ticked: false},
+    { name: twitter,
+    ticked: false},
+    { name: youtube,
+    ticked: false},
+    { name: pinterest,
+    ticked: false},
+    { name: linkedin,
+    ticked: false},
+    { name: reddit,
+    ticked: false},
+  ];
   const [checked, setChecked] = useState([]);
   const handleCheck = (event) => {
     let updatedList = [...checked];
+    console.log(updatedList);
     if (event.target.checked) {
       updatedList = [...checked, event.target.value];
     } else {

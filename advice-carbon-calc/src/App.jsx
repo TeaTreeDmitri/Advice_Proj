@@ -18,7 +18,8 @@ function App() {
   const [thisPage, setThisPage] = useState(pageCount);
   function changePage() {
     if (pageCount < 7) {
-    setThisPage(pageCount++)
+     pageCount++
+    setThisPage(pageCount)
     }
 }
   //store the results in an object

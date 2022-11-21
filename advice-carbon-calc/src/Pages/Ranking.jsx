@@ -11,7 +11,7 @@ function Ranking() {
       <h1>Where do you rank yourself</h1>
 
       <label htmlFor="ranking">
-        I'm in the {getPercentile} percentile
+        I'm in the percentile
         <input type="range" min="1" max="5" id="ranking" name="ranking" required onChange={getPercentile} />
       </label>
     </section>

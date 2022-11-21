@@ -6,25 +6,13 @@ function Relevance(props) {
       <section className="cloud-storage">
         <h2>Any cloud storage?</h2>
         <form>
-          {props.RelevantOnline.map((item) =>(
-        <Checkbox key={props.id} contents={props.RelevantOnline}/>
+          {props.RelevantOnline.map(location =>(
+        <Checkbox key={location.name} name={location.name}/>
           ))}
          
         </form>
       </section>
 
-
-      <section className="apps">
-        <h2>Apps</h2>
-        <form>
-          <div className="input-box">
-            <label htmlFor="tiktok">
-              TikTok
-              <input type="checkbox" id="tiktok" name="tiktok" onChange={props.handleCheck} />
-            </label>
-          </div>
-        </form>
-      </section>
     </>
   );
 }

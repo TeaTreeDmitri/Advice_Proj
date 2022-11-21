@@ -16,7 +16,7 @@ function App() {
   //Add and remove checked items in Relevance.jsx from the list updatedList
   const RelevantOnline = [
     { name: "gmail",
-    ticked: false},
+    ticked: false,},
     { name: "icloud",
     ticked: false},
     { name: "onedrive",
@@ -42,18 +42,20 @@ function App() {
     { name: "reddit",
     ticked: false},
   ];
-  const [checked, setChecked] = useState([]);
-  const handleCheck = (event) => {
-    let updatedList = [...checked];
-    console.log(updatedList);
-    if (event.target.checked) {
-      updatedList = [...checked, event.target.value];
-    } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
-    }
-    setChecked(updatedList);
-    console.log(updatedList);
-  };
+  const [checked, setChecked] = useState();
+  const handleCheck = "";
+  // const [checked, setChecked] = useState([]);
+  // const handleCheck = (event) => {
+  //   let updatedList = [...checked];
+  //   console.log(updatedList);
+  //   if (event.target.checked) {
+  //     updatedList = [...checked, event.target.value];
+  //   } else {
+  //     updatedList.splice(checked.indexOf(event.target.value), 1);
+  //   }
+  //   setChecked(updatedList);
+  //   console.log(updatedList);
+  // };
 
   //show the correct page
   const [thisPage, setThisPage] = useState(pageCount);
@@ -69,7 +71,7 @@ function App() {
       <Header />
       {thisPage === 0 && <Landing />}
       {thisPage === 1 && <Ranking />}
-      {thisPage === 2 && <Relevance handleCheck={handleCheck} RelevantOnline={RelevantOnline}/>}
+      {thisPage === 2 && <Relevance RelevantOnline={RelevantOnline}/>}
       {thisPage === 3 && <Storage />}
       {thisPage === 4 && <Screentime />}
       {thisPage === 5 && <NewPhone />}

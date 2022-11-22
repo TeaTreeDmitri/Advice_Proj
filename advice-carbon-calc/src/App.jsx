@@ -36,10 +36,15 @@ function App() {
       setThisPage(pageCount);
     }
   }
+
+  function homePage() {
+    pageCount = 0;
+    setThisPage(pageCount);
+  }
   //store the results in an object
   return (
     <div className="App">
-      <Header />
+      <Header homePage={homePage}/>
       {thisPage === 0 && <Landing />}
       {thisPage === 1 && <Ranking />}
       {thisPage === 2 && <Relevance handleCheck={handleCheck} />}

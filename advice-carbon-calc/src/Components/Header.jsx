@@ -1,8 +1,11 @@
 import React from 'react'
 
-function Header() {
+function Header(props) {
   return (
+    <>
     <div>Header</div>
+    <button onClick={props.homePage}>Home</button>
+    </>
   )
 }
 

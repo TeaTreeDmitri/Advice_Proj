@@ -11,16 +11,19 @@ import Screentime from "./Pages/Screentime";
 import Storage from "./Pages/Storage";
 
 let pageCount = 0;
+let checkedBoxes = []
+let newBoxes = []
 
 function App() {
   //Add and remove checked item from the list
   const [checked, setChecked] = useState([]);
+
   const handleCheck = (event) => {
     let updatedList = [...checked];
     if (event.target.checked) {
-      updatedList = [...checked, event.target.value];
+      updatedList = [...checked, event.target.id];
     } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
+      updatedList.splice(checked.indexOf(event.target.id), 1);
     }
     setChecked(updatedList);
     console.log(updatedList);

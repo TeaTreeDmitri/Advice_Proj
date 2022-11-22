@@ -18,9 +18,9 @@ function App() {
   const handleCheck = (event) => {
     let updatedList = [...checked];
     if (event.target.checked) {
-      updatedList = [...checked, event.target.value];
+      updatedList = [...checked, event.target.id];
     } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
+      updatedList.splice(checked.indexOf(event.target.id), 1);
     }
     setChecked(updatedList);
     console.log(updatedList);
@@ -30,8 +30,8 @@ function App() {
   const [thisPage, setThisPage] = useState(pageCount);
   function changePage() {
     if (pageCount < 7) {
-     pageCount++
-    setThisPage(pageCount)
+      pageCount++;
+      setThisPage(pageCount);
     }
   }
   //store the results in an object

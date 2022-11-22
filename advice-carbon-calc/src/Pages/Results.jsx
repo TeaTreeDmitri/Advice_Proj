@@ -4,9 +4,9 @@ function Results(props) {
   const userTotal {
     data needed:
 
-      total storage CO2 in mb
+      total storage CO2 in GB
         requires:
-          Σ  each location CO2 rating * amount of mb
+          Σ  each location CO2 rating * amount of GB
 
           +
 

@@ -1,69 +1,108 @@
+import {useState} from "react"
+
 function Storage(props) {
+  const [userStorage, setUserStorage] = useState(0);
+  let carbonTotal = 0;
+  let totalStorage = 0;
+
+  function totalTheStorage(addMe) {
+    totalStorage = totalStorage + addMe
+    setUserStorage(totalStorage);
+    console.log(totalStorage);
+  }
+
+  function handleGoogleChange(e) {
+    let carbonTotal = (e.target.value*2)
+    userStorage.googleStore = carbonTotal;
+    } totalTheStorage(carbonTotal);
+  
+  
+
+  function handleIcloudChange(e) {
+    let carbonTotal = (e.target.value*2)
+    userStorage.icloudStore = carbonTotal;
+  }
+
+  function handleOnedriveChange(e) {
+    let carbonTotal = (e.target.value*2)
+    userStorage.onedriveStore = carbonTotal;
+  }
+
+  function handleDropboxChange(e) {
+    let carbonTotal = (e.target.value*2)
+    userStorage.dropboxStore = carbonTotal;
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    setUserStorage(userStorage)
+    console.log(userStorage);
+    
+    // props.saveStorage(userStorage);
+  }
+
+
   return (
     <section className="cloud-data">
       <h1>How big are you digitally speaking?</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="input-box">
           <label htmlFor="storage1">
-            Please enter your Google storage size in GB
+            Google storage size in GB
             <input
-              type="text"
-              step=".01"
-              required
-              id="google-storage"
+              type="number"
               name="google-storage"
-              onBlur={props.handleStorageInput}
-              // onChange={props.calculateTotal}
+              id="google-storage"
+              required
+              autoFocus
               placeholder="Enter a number"
+              onKeyUp={handleGoogleChange}
             />
           </label>
         </div>
         <div className="input-box">
           <label htmlFor="storage2">
-            Please enter your Icloud storage size in GB
+            Icloud storage size in GB
             <input
               type="number"
               name="icloud-storage"
               id="icloud-storage"
               required
               placeholder="Enter a number"
-              onBlur={props.handleStorageInput}
-              // onChange={props.calculateTotal}
+              onKeyUp={handleIcloudChange}
             />
           </label>
         </div>
         <div className="input-box">
           <label htmlFor="storage3">
-            Please enter your Onedrive storage size in GB
+            Onedrive storage size in GB
             <input
               type="number"
               name="onedrive-storage"
               id="onedrive-storage"
               required
               placeholder="Enter a number"
-              onBlur={props.handleStorageInput}
-              // onChange={props.calculateTotal}
+              onKeyUp={handleOnedriveChange}
             />
           </label>
         </div>
         <div className="input-box">
           <label htmlFor="storage3">
-            Please enter your Dropbox storage size in GB
+            Dropbox storage size in GB
             <input
               type="number"
               name="dropbox-storage"
               id="dropbox-storage"
               required
               placeholder="Enter a number"
-              onBlur={props.handleStorageInput}
-              //onChange={props.calculateTotal}
+              onKeyUp={handleDropboxChange}
             />
           </label>
         </div>
-        <h3>Storage total: {props.cloudStorage} GB</h3>
+        <button>Done</button>
       </form>
     </section>
   );
-}
+  }
 
 export default Storage;

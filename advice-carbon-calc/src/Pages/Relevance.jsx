@@ -30,6 +30,7 @@ function Relevance(props) {
           </div>
         </form>
       </section>
+      
       <section className="apps">
         <h2>Apps</h2>
         <form>

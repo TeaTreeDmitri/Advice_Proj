@@ -11,11 +11,16 @@ import Screentime from "./Pages/Screentime";
 import Storage from "./Pages/Storage";
 
 let pageCount = 0;
-let cloudStorage = [];
 
 function App() {
   //Add and remove checked item from the list
   const [checked, setChecked] = useState([]);
+  const [userCO2, setUserCO2] = useState({
+    storage: 0,
+    screentime: 0,
+    replace: 0.
+  })
+
 
   const handleCheck = (event) => {
     let updatedList = [...checked];
@@ -28,47 +33,12 @@ function App() {
     console.log(updatedList);
   };
 
-  //Store cloud storage numbers into an array
   //const numbers = /^[0-9]+$/;
   const numbers = /^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/;
+  
 
-  /*  const handleStorageInput = (event) => {
-    let num = event.target.value;
-    if (event.target.value.length != 0) {
-      num = (Math.round(num * 100) / 100).toFixed(2);
-      cloudStorage.push(num);
-      console.log("Cloudstorage in separate numbers", cloudStorage);
-    } else {
-      console.log("This string has no value");
-    }
-  }; */
-
-  //v2
   //Add and remove checked item from the list
-  const [hasValue, setHasValue] = useState([]);
-  const handleStorageInput = (event) => {
-    let storageList = [...hasValue];
-    if (event.target.value.match(numbers)) {
-      storageList = [...hasValue, event.target.value];
-    } else if (event.target.value.length === 0) {
-      storageList.splice(hasValue.indexOf(event.target.value), 1);
-    }
-    setHasValue(storageList);
-    console.log("storageList is:", storageList);
-  };
 
-  ///calculate total
-  const calculateTotal = (event) => {
-    let total = 0;
-    if (event.target.value.match(numbers)) {
-      //total = event.target.value;
-      total = cloudStorage.reduce((a, b) => a + b, 0);
-      for (let i = 0; i < cloudStorage.length; i++) {
-        total += cloudStorage[i];
-      }
-      console.log("The total is:", total);
-    }
-  };
 
   //show the correct page
   const [thisPage, setThisPage] = useState(pageCount);
@@ -83,7 +53,22 @@ function App() {
     pageCount = 0;
     setThisPage(pageCount);
   }
-  //store the results in an object
+
+  //receive the storage info
+  function saveStorage(data) {
+    console.log(data);
+    totalStorage(data)
+  }
+  //total storage info and save to userCO2 obj
+  function totalStorage(data) {
+        let total = 0;
+        data.filter(item => {
+          total += item.amount
+        })
+        console.log(total);
+    // setUserCO2(storage)
+  }
+
   return (
     <>
     <div className="App">
@@ -93,8 +78,8 @@ function App() {
       {thisPage === 1 && <Ranking />}
       {thisPage === 2 && <Relevance handleCheck={handleCheck} />}
       {thisPage === 3 && (<>
-        <Storage handleStorageInput={handleStorageInput} calculateTotal={calculateTotal} cloudStorage={cloudStorage} />
-        <button>Submit</button>
+        <Storage saveStorage={saveStorage}  />
+
         </>)}
       {thisPage === 4 && <Screentime />}
       {thisPage === 5 && <NewPhone />}
@@ -103,6 +88,6 @@ function App() {
       <Footer />
     </div>
     </>
-  );
+  )
 }
 export default App;

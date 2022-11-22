@@ -28,6 +28,48 @@ function App() {
     console.log(updatedList);
   };
 
+  //Store cloud storage numbers into an array
+  //const numbers = /^[0-9]+$/;
+  const numbers = /^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/;
+
+  /*  const handleStorageInput = (event) => {
+    let num = event.target.value;
+    if (event.target.value.length != 0) {
+      num = (Math.round(num * 100) / 100).toFixed(2);
+      cloudStorage.push(num);
+      console.log("Cloudstorage in separate numbers", cloudStorage);
+    } else {
+      console.log("This string has no value");
+    }
+  }; */
+
+  //v2
+  //Add and remove checked item from the list
+  const [hasValue, setHasValue] = useState([]);
+  const handleStorageInput = (event) => {
+    let storageList = [...hasValue];
+    if (event.target.value.match(numbers)) {
+      storageList = [...hasValue, event.target.value];
+    } else if (event.target.value.length === 0) {
+      storageList.splice(hasValue.indexOf(event.target.value), 1);
+    }
+    setHasValue(storageList);
+    console.log("storageList is:", storageList);
+  };
+
+  ///calculate total
+  const calculateTotal = (event) => {
+    let total = 0;
+    if (event.target.value.match(numbers)) {
+      //total = event.target.value;
+      total = cloudStorage.reduce((a, b) => a + b, 0);
+      for (let i = 0; i < cloudStorage.length; i++) {
+        total += cloudStorage[i];
+      }
+      console.log("The total is:", total);
+    }
+  };
+
   //show the correct page
   const [thisPage, setThisPage] = useState(pageCount);
   function changePage() {

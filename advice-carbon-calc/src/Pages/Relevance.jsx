@@ -6,8 +6,8 @@ function Relevance(props) {
       <section className="cloud-storage">
         <h2>Any cloud storage?</h2>
         <form>
-          {props.RelevantOnline.map(location =>(
-        <Checkbox key={location.name} name={location.name}/>
+          {props.RelevantOnline.map(item =>(
+        <Checkbox key={item.name} name={item.name}/>
           ))}
          
         </form>

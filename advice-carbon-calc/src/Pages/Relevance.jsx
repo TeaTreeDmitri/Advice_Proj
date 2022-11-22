@@ -7,19 +7,19 @@ function Relevance(props) {
           <div className="input-box">
             <label htmlFor="google">
               Google
-              <input type="checkbox" id="google" name="google" handleCheck={props.handleCheck} />
+              <input type="checkbox" id="google" name="google" onChange={props.handleCheck} />
             </label>
           </div>
           <div className="input-box">
             <label htmlFor="icloud">
               Icloud
-              <input type="checkbox" id="icloud" name="icloud" handleCheck={props.handleCheck} />
+              <input type="checkbox" id="icloud" name="icloud" onChange={props.handleCheck} />
             </label>
           </div>
           <div className="input-box">
             <label htmlFor="onedrive">
               Onedrive
-              <input type="checkbox" id="onedrive" name="onedrive" handleCheck={props.handleCheck} />
+              <input type="checkbox" id="onedrive" name="onedrive" onChange={props.handleCheck} />
             </label>
           </div>
           <div className="input-box">

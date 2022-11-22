@@ -11,7 +11,7 @@ import Screentime from "./Pages/Screentime";
 import Storage from "./Pages/Storage";
 
 let pageCount = 0;
-
+let cloudStorage = [];
 
 function App() {
   //Add and remove checked item from the list
@@ -32,8 +32,8 @@ function App() {
   const [thisPage, setThisPage] = useState(pageCount);
   function changePage() {
     if (pageCount < 7) {
-     pageCount++
-    setThisPage(pageCount)
+      pageCount++;
+      setThisPage(pageCount);
     }
   }
   //store the results in an object
@@ -43,7 +43,9 @@ function App() {
       {thisPage === 0 && <Landing />}
       {thisPage === 1 && <Ranking />}
       {thisPage === 2 && <Relevance handleCheck={handleCheck} />}
-      {thisPage === 3 && <Storage />}
+      {thisPage === 3 && (
+        <Storage handleStorageInput={handleStorageInput} calculateTotal={calculateTotal} cloudStorage={cloudStorage} />
+      )}
       {thisPage === 4 && <Screentime />}
       {thisPage === 5 && <NewPhone />}
       {thisPage === 6 && <Results />}

@@ -85,20 +85,24 @@ function App() {
   }
   //store the results in an object
   return (
+    <>
     <div className="App">
+      
       <Header homePage={homePage}/>
       {thisPage === 0 && <Landing />}
       {thisPage === 1 && <Ranking />}
       {thisPage === 2 && <Relevance handleCheck={handleCheck} />}
-      {thisPage === 3 && (
+      {thisPage === 3 && (<>
         <Storage handleStorageInput={handleStorageInput} calculateTotal={calculateTotal} cloudStorage={cloudStorage} />
-      )}
+        <button>Submit</button>
+        </>)}
       {thisPage === 4 && <Screentime />}
       {thisPage === 5 && <NewPhone />}
       {thisPage === 6 && <Results />}
-      <button onClick={() => changePage()}>Next Page</button>
+      {thisPage != 3 &&<button onClick={() => changePage()}>Next Page</button>}
       <Footer />
     </div>
+    </>
   );
 }
 export default App;

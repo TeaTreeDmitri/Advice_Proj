@@ -11,8 +11,7 @@ import Screentime from "./Pages/Screentime";
 import Storage from "./Pages/Storage";
 
 let pageCount = 0;
-let checkedBoxes = []
-let newBoxes = []
+
 
 function App() {
   //Add and remove checked item from the list

@@ -1,7 +1,18 @@
 function GoogleField(props) {
 
   return (
-    <div><p>Hi I'm google, look at me!</p></div>
+    <label htmlFor="storage1">
+    Google storage size in GB
+        <input
+              type="number"
+              name="google-storage"
+              id="google-storage"
+              required
+              autoFocus
+              placeholder="Enter a number"
+              onKeyUp={props.handleGoogleChange}
+            />
+          </label>
   )
 }
 

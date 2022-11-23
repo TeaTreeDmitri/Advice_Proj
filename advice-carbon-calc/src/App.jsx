@@ -30,7 +30,6 @@ function App() {
       updatedList.splice(checked.indexOf(event.target.id), 1);
     }
     setChecked(updatedList);
-    console.log(checked);
   };
 
   //const numbers = /^[0-9]+$/;

@@ -1,5 +1,8 @@
 import { useState } from "react";
+import DropboxField from "../Components/DropboxField";
 import GoogleField from "../Components/GoogleField";
+import IcloudField from "../Components/IcloudField";
+import OnedriveField from "../Components/OnedriveField";
 
 function Storage(props) {
   console.log(props.checked);
@@ -61,58 +64,16 @@ function Storage(props) {
       <h1>How big are you digitally speaking?</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-box">
-          {/* <label htmlFor="storage1">
-            Google storage size in GB */}
             {props.checked.includes("google") && <GoogleField handleGoogleChange={handleGoogleChange} updatedList={props.updatedList}/>}
-            {/* <input
-              type="number"
-              name="google-storage"
-              id="google-storage"
-              required
-              autoFocus
-              placeholder="Enter a number"
-              onKeyUp={handleGoogleChange}
-            /> */}
-          {/* </label> */}
         </div>
         <div className="input-box">
-          <label htmlFor="storage2">
-            Icloud storage size in GB
-            <input
-              type="number"
-              name="icloud-storage"
-              id="icloud-storage"
-              required
-              placeholder="Enter a number"
-              onKeyUp={handleIcloudChange}
-            />
-          </label>
+        {props.checked.includes("icloud") && <IcloudField handleIcloudChange={handleIcloudChange} updatedList={props.updatedList}/>}
         </div>
         <div className="input-box">
-          <label htmlFor="storage3">
-            Onedrive storage size in GB
-            <input
-              type="number"
-              name="onedrive-storage"
-              id="onedrive-storage"
-              required
-              placeholder="Enter a number"
-              onKeyUp={handleOnedriveChange}
-            />
-          </label>
+        {props.checked.includes("onedrive") && <OnedriveField handleOndriveChange={handleOnedriveChange} updatedList={props.updatedList}/>}
         </div>
         <div className="input-box">
-          <label htmlFor="storage3">
-            Dropbox storage size in GB
-            <input
-              type="number"
-              name="dropbox-storage"
-              id="dropbox-storage"
-              required
-              placeholder="Enter a number"
-              onKeyUp={handleDropboxChange}
-            />
-          </label>
+        {props.checked.includes("dropbox") && <DropboxField handleDropboxChange={handleDropboxChange} updatedList={props.updatedList}/>}
         </div>
         <button>Done</button>
       </form>

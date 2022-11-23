@@ -1,6 +1,8 @@
 import { useState } from "react";
+import GoogleField from "../Components/GoogleField";
 
 function Storage(props) {
+  console.log(props.checked);
   const [userStorage, setUserStorage] = useState({});
   let carbonTotal = 0;
   let totalStorage = 0;
@@ -59,9 +61,10 @@ function Storage(props) {
       <h1>How big are you digitally speaking?</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-box">
-          <label htmlFor="storage1">
-            Google storage size in GB
-            <input
+          {/* <label htmlFor="storage1">
+            Google storage size in GB */}
+            {props.checked.includes("google") && <GoogleField handleGoogleChange={handleGoogleChange} updatedList={props.updatedList}/>}
+            {/* <input
               type="number"
               name="google-storage"
               id="google-storage"
@@ -69,8 +72,8 @@ function Storage(props) {
               autoFocus
               placeholder="Enter a number"
               onKeyUp={handleGoogleChange}
-            />
-          </label>
+            /> */}
+          {/* </label> */}
         </div>
         <div className="input-box">
           <label htmlFor="storage2">

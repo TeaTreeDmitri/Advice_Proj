@@ -11,6 +11,7 @@ import Screentime from "./Pages/Screentime";
 import Storage from "./Pages/Storage";
 
 let pageCount = 0;
+let updatedList = [];
 
 function App() {
   //Add and remove checked item from the list
@@ -22,14 +23,14 @@ function App() {
   });
 
   const handleCheck = (event) => {
-    let updatedList = [...checked];
+    updatedList = [...checked];
     if (event.target.checked) {
       updatedList = [...checked, event.target.id];
     } else {
       updatedList.splice(checked.indexOf(event.target.id), 1);
     }
     setChecked(updatedList);
-    console.log(updatedList);
+    console.log(checked);
   };
 
   //const numbers = /^[0-9]+$/;
@@ -103,7 +104,7 @@ function App() {
         {thisPage === 2 && <Relevance handleCheck={handleCheck} />}
         {thisPage === 3 && (
           <>
-            <Storage saveStorage={saveStorage} />
+            <Storage saveStorage={saveStorage} checked={checked} />
           </>
         )}
         {thisPage === 4 && <Screentime saveScreenTime={saveScreenTime} />}

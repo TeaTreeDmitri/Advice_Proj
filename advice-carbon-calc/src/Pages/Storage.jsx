@@ -1,46 +1,58 @@
-import {useState} from "react"
+import { useState } from "react";
 
 function Storage(props) {
-  const [userStorage, setUserStorage] = useState(0);
+  const [userStorage, setUserStorage] = useState({});
   let carbonTotal = 0;
   let totalStorage = 0;
 
   function totalTheStorage(addMe) {
-    totalStorage = totalStorage + addMe
+    totalStorage = totalStorage + addMe;
     setUserStorage(totalStorage);
-    console.log(totalStorage);
   }
 
   function handleGoogleChange(e) {
-    let carbonTotal = (e.target.value*2)
-    userStorage.googleStore = carbonTotal;
-    } totalTheStorage(carbonTotal);
-  
-  
+    let carbonTotal = e.target.value * 2;
+    let googleStore = carbonTotal;
+    setUserStorage((old) => {
+      return { ...old, googleStore };
+    });
+  }
 
   function handleIcloudChange(e) {
-    let carbonTotal = (e.target.value*2)
-    userStorage.icloudStore = carbonTotal;
+    let carbonTotal = e.target.value * 2;
+    let icloudStore = carbonTotal;
+    setUserStorage((old) => {
+      return { ...old, icloudStore };
+    });
   }
 
   function handleOnedriveChange(e) {
-    let carbonTotal = (e.target.value*2)
-    userStorage.onedriveStore = carbonTotal;
+    let carbonTotal = e.target.value * 2;
+    let onedriveStore = carbonTotal;
+    setUserStorage((old) => {
+      return { ...old, onedriveStore };
+    });
   }
 
   function handleDropboxChange(e) {
-    let carbonTotal = (e.target.value*2)
-    userStorage.dropboxStore = carbonTotal;
+    let carbonTotal = e.target.value * 2;
+    let dropboxStore = carbonTotal;
+    setUserStorage((old) => {
+      return { ...old, dropboxStore };
+    });
   }
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
-    setUserStorage(userStorage)
-    console.log(userStorage);
-    
-    // props.saveStorage(userStorage);
-  }
+    setUserStorage(userStorage);
+    totalTheStorage(carbonTotal);
 
+    console.log("totalStorage:", totalStorage);
+    console.log("Total co2 emissions per app:", userStorage);
+    console.log("carbonTotal:", carbonTotal);
+    //send data back to app
+    props.saveStorage(userStorage);
+  }
 
   return (
     <section className="cloud-data">
@@ -103,6 +115,6 @@ function Storage(props) {
       </form>
     </section>
   );
-  }
+}
 
 export default Storage;

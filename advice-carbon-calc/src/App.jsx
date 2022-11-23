@@ -75,6 +75,25 @@ function App() {
     console.log(userCO2);
   }
 
+  //receive the screentime info
+  function saveScreenTime(data) {
+    console.log("saveScreenTime receives this:", data);
+    totalScreenTime(data);
+  }
+  function totalScreenTime(data) {
+    console.log("totalScreenTime gets this data:", data);
+    let appEmissionsTotal = 0;
+    // obj.values returns us an array of the values from the object this function receives
+    let dataArray = Object.values(data);
+    dataArray.forEach((item) => {
+      appEmissionsTotal += item;
+      //store screentimte total to userCo2.screentime state
+      console.log(userCO2);
+      userCO2.screentime = appEmissionsTotal;
+    });
+    setUserCO2(appEmissionsTotal);
+  }
+
   return (
     <>
       <div className="App">
@@ -87,7 +106,7 @@ function App() {
             <Storage saveStorage={saveStorage} />
           </>
         )}
-        {thisPage === 4 && <Screentime />}
+        {thisPage === 4 && <Screentime saveScreenTime={saveScreenTime} />}
         {thisPage === 5 && <NewPhone />}
         {thisPage === 6 && <Results />}
         {thisPage != 3 && <button onClick={() => changePage()}>Next Page</button>}

@@ -67,11 +67,11 @@ function Results(props) {
   console.log("ranking difference", rankingDiff)
 
   if (rankingDiff < -1) {
-    shock = "wayyyy worse"
+    shock = "wayyyy worse than"
   }  else if (rankingDiff === -1 || rankingDiff === 0 || rankingDiff ===1) {
     shock = "about the same as";
   } else if (rankingDiff > 1 ) {
-    shock = "wayyyy better";
+    shock = "wayyyy better than";
   }
 
  
@@ -93,7 +93,7 @@ function Results(props) {
       <div className="results-box">
         <p>
           Well... The average phone in Europe uses <span>{eurAvg}CO2kg</span> per year which means you’re using <span>{span}</span> than the average and polluting <span>{userDiff.toFixed(1)}</span> times that the european average
-          You're expectation was <span>{shock}</span> than reality! Shocker!
+          You're expectation was <span>{shock}</span> reality! Shocker!
         </p>
       </div>
       <div className="results-box">

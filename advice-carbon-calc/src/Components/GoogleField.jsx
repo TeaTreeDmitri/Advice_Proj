@@ -9,6 +9,7 @@ function GoogleField(props) {
               id="google-storage"
               required
               autoFocus
+  
               placeholder="Enter a number"
               onKeyUp={props.handleGoogleChange}
             />

@@ -2,7 +2,7 @@ function TikTokField(props) {
   return (
     <label>
       Weekly screen time of TikTok
-      <input type="number" min="0" name="minutes" id="minutes" onKeyUp={props.handleTikTok} />
+      <input type="number" min="0" name="minutes" id="minutes" onKeyUp={props.handleTiktok} />
       <label htmlFor="minutes">Minutes</label>
     </label>
   );

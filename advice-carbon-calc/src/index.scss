@@ -105,6 +105,11 @@ span {
     }
   }
 
+  img {
+    min-width: 100px;
+    height: auto;
+  }
+
   form * {
     margin: 5px;
     text-align: end;

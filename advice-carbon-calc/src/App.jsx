@@ -68,7 +68,7 @@ function App() {
       userCO2.storage = storageEmissionsTotal;
     });
     // setUserCO2(storageEmissionsTotal);
-    setUserCO2({
+    setUserCO2({...userCO2,
       storage: storageEmissionsTotal,
     });
     //increment page count to move to next page
@@ -80,7 +80,7 @@ function App() {
   //receive the user expected rank info
   function saveUserRank(data) {
     let userRank = data;
-    setUserCO2({
+    setUserCO2({...userCO2,
       ranking: userRank,
     });
   }
@@ -100,7 +100,7 @@ function App() {
       //store screentimte total to userCo2.screentime state
       //userCO2.screentime = appEmissionsTotal;
     });
-    setUserCO2({
+    setUserCO2({...userCO2,
       screentime: appEmissionsTotal,
     });
     console.log(userCO2);
@@ -110,7 +110,7 @@ function App() {
   function saveNewPhone(e){
     let years = e.target.value;
     let replacementCO2 = 117 / years;
-    setUserCO2({replace: replacementCO2})
+    setUserCO2({...userCO2, replace: replacementCO2})
   }
 
   return (

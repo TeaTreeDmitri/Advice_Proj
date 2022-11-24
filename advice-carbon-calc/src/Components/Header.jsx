@@ -2,10 +2,12 @@ import React from 'react'
 
 function Header(props) {
   return (
-    <>
-    <div>Header</div>
+    <div className="header">
+    <ul>
     <button onClick={props.homePage}>Home</button>
-    </>
+    <button onClick={props.tips}>Tips & Tricks</button>
+    </ul>
+    </div>
   )
 }
 

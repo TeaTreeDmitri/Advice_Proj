@@ -62,7 +62,9 @@ function Storage(props) {
   return (
     <section className="cloud-data">
       <h1>How big are you digitally speaking?</h1>
+
       <form onSubmit={handleSubmit}>
+
         <div className="input-box">
             {props.checked.includes("google") && <GoogleField handleGoogleChange={handleGoogleChange} updatedList={props.updatedList}/>}
         </div>
@@ -74,8 +76,9 @@ function Storage(props) {
         </div>
         <div className="input-box">
         {props.checked.includes("dropbox") && <DropboxField handleDropboxChange={handleDropboxChange} updatedList={props.updatedList}/>}
-        </div>
+        </div>         
         <button>Done</button>
+
       </form>
     </section>
   );

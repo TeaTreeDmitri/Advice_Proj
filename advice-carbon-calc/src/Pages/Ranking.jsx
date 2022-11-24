@@ -46,7 +46,7 @@ function Ranking(props) {
 
       <label htmlFor="ranking">
         Compared to the average...
-        <input type="range" default="3" min="1" max="5" id="ranking" name="ranking" required onChange={getRank} />
+        <input type="range" default="3" min="1" max="5" id="ranking" name="ranking" className="ranker"required onChange={getRank} />
       </label>
       <p>{message}</p>
     </section>

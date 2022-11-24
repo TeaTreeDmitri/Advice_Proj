@@ -1,8 +1,8 @@
 function Relevance(props) {
   return (
-    <>
+    <section className="relevance">
       <section className="cloud-storage">
-        <h2>Any cloud storage?</h2>
+        <h1>Any cloud storage?</h1>
         <form>
           <div className="input-box">
             <label htmlFor="google">
@@ -32,7 +32,7 @@ function Relevance(props) {
       </section>
       
       <section className="apps">
-        <h2>Apps</h2>
+        <h1>Any apps used?</h1>
         <form>
           <div className="input-box">
             <label htmlFor="tiktok">
@@ -90,7 +90,7 @@ function Relevance(props) {
           </div>
         </form>
       </section>
-    </>
+    </section>
   );
 }
 

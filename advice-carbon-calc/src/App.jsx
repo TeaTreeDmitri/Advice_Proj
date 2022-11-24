@@ -102,22 +102,28 @@ function App() {
     setUserCO2(appEmissionsTotal);
   }
 
+  //receive user phone replacement data
+  function saveNewPhone(e){
+    let years = e.target.value;
+    let replacementCO2 = 117 / years;
+    setUserCO2({replace: replacementCO2})
+  }
+
   return (
     <>
       <div className="App">
         <Header homePage={homePage} />
+        <div className="content">
+
         {thisPage === 0 && <Landing />}
         {thisPage === 1 && <Ranking saveUserRank={saveUserRank} />}
         {thisPage === 2 && <Relevance handleCheck={handleCheck} />}
-        {thisPage === 3 && (
-          <>
-            <Storage saveStorage={saveStorage} checked={checked} />
-          </>
-        )}
+        {thisPage === 3 && <Storage saveStorage={saveStorage} checked={checked} />}
         {thisPage === 4 && <Screentime saveScreenTime={saveScreenTime} checked={checked} />}
-        {thisPage === 5 && <NewPhone />}
-        {thisPage === 6 && <Results />}
+        {thisPage === 5 && <NewPhone saveNewPhone={saveNewPhone}/>}
+        {thisPage === 6 && <Results userCO2={userCO2}/>}
         {thisPage != 3 && <button onClick={() => changePage()}>Next Page</button>}
+        </div>
         <Footer />
       </div>
     </>

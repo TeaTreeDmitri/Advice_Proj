@@ -6,7 +6,7 @@ function Landing() {
 
       <div className="paragraph">
         <p>
-          Here you can anonymously take a quick quiz to find out, pretty accurately, the size of your phone´s carbon
+          Here you can anonymously take a quick quiz to find out, with some accuracy, the size of your phone´s carbon
           footprint. We won´t store any of your data so please be honest.
         </p>
       </div>

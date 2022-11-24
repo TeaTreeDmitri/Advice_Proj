@@ -1,4 +1,5 @@
 function Results(props) {
+  console.log(props.userCO2)
   /*
   ---USER'S TOTAL CO2 
   const userTotal {
@@ -90,7 +91,6 @@ function Results(props) {
       </div>
       <div className="button-container">
         <button>Challenge your friends!</button>
-        <button>Tips and tricks</button>
       </div>
     </section>
   );

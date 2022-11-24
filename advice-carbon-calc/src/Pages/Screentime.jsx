@@ -105,8 +105,9 @@ function Screentime(props) {
     props.saveScreenTime(userScreenTime);
   }
   return (
-    <section className="screentime">
+    <>
       <h1>Screentime or Greentime?</h1>
+    <section className="screentime">
       <form onSubmit={handleSubmit}>
         <div className="input-box" id="screentime-input">
           {props.checked.includes("tiktok") && <TiktokField handleTiktok={handleTiktok}/>}
@@ -138,6 +139,7 @@ function Screentime(props) {
         <button>Done</button>
       </form>
     </section>
+    </>
   );
 }
 

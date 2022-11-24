@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function Ranking() {
+function Ranking(props) {
   const [message, setMessage] = useState("Let's be honest here!");
+  const [ranking, setRanking] = useState(0);
   function getRank(e) {
     let rank = parseInt(e.target.value);
     if (rank === 1) {
@@ -15,10 +16,28 @@ function Ranking() {
     } else if (rank === 5) {
       setMessage("I'm literally a tree");
     }
+    handleRankChange(rank);
     let percentile = rank;
-
-    console.log(percentile);
     return percentile;
+  }
+
+  function handleRankChange(data) {
+    let ranking = data;
+
+    if (ranking === 1) {
+      setRanking(1);
+    } else if (ranking === 2) {
+      setRanking(2);
+    } else if (ranking === 3) {
+      setRanking(3);
+    } else if (ranking === 4) {
+      setRanking(4);
+    } else if (ranking === 5) {
+      setRanking(5);
+    }
+    let userRank = ranking;
+    props.saveUserRank(userRank);
+    return userRank;
   }
 
   return (

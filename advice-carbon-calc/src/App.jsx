@@ -20,8 +20,10 @@ function App() {
     storage: 0,
     screentime: 0,
     replace: 0,
+    ranking: 0,
   });
 
+  //Add and remove checked item from the list
   const handleCheck = (event) => {
     updatedList = [...checked];
     if (event.target.checked) {
@@ -32,10 +34,8 @@ function App() {
     setChecked(updatedList);
   };
 
-  //const numbers = /^[0-9]+$/;
+  //regex for numbers only
   const numbers = /^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/;
-
-  //Add and remove checked item from the list
 
   //show the correct page
   const [thisPage, setThisPage] = useState(pageCount);
@@ -75,6 +75,14 @@ function App() {
     console.log(userCO2);
   }
 
+  //receive the user expected rank info
+  function saveUserRank(data) {
+    let userRank = data;
+    setUserCO2({
+      ranking: userRank,
+    });
+  }
+
   //receive the screentime info
   function saveScreenTime(data) {
     console.log("saveScreenTime receives this:", data);
@@ -99,7 +107,7 @@ function App() {
       <div className="App">
         <Header homePage={homePage} />
         {thisPage === 0 && <Landing />}
-        {thisPage === 1 && <Ranking />}
+        {thisPage === 1 && <Ranking saveUserRank={saveUserRank} />}
         {thisPage === 2 && <Relevance handleCheck={handleCheck} />}
         {thisPage === 3 && (
           <>

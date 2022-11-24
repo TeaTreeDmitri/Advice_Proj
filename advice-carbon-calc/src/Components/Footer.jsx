@@ -10,12 +10,12 @@ function Footer(props) {
           </svg>
           </div>
           <div>
-          <img src={require("/src/assets/8bt_logo.png")} alt="8 billion trees logo" width="150" height="40"/>
+          <img src="../Advice_proj/advice-carbon-calc/src/assets/8bt_logo.png" alt="8 billion trees logo" width="150" height="40"/>
           
       
           </div>
           <div>
-          <img src={require("./src/assets/greenspector_logo.png")} alt="greenspector logo" width="150" height="30"/>
+          <img src="./src/assets/greenspector_logo.png" alt="greenspector logo" width="150" height="30"/>
           </div>
         </div>
     </div>

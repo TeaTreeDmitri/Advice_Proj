@@ -36,6 +36,7 @@ html {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  z-index: 2;
 }
 
 .ranking {
@@ -84,6 +85,7 @@ html {
   justify-content: space-between;
   max-height: 20%;
   align-items: center;
+  z-index: 1;
   
   .socialVal {
     margin: 1%;

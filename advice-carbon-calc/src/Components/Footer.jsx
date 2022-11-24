@@ -10,10 +10,10 @@ function Footer(props) {
           </svg>
           </div>
           <div>
-          <img src="./src/assets/8bt_logo.webp" alt="8 billion trees logo" />
+          <img src="/assets/8bt_logo.webp" alt="8 billion trees logo" />
           </div>
           <div>
-          <img src="./src/assets/greenspector_logo.webp" alt="greenspector logo"/>
+          <img src="/assets/greenspector_logo.webp" alt="greenspector logo"/>
           </div>
         </div>
     </div>

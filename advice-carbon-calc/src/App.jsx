@@ -67,8 +67,10 @@ function App() {
       //set userCo2.storage state
       userCO2.storage = storageEmissionsTotal;
     });
-    console.log("the sum of storage emissions:", storageEmissionsTotal);
-    setUserCO2(storageEmissionsTotal);
+    // setUserCO2(storageEmissionsTotal);
+    setUserCO2({
+      storage: storageEmissionsTotal,
+    });
     //increment page count to move to next page
     pageCount++;
     setThisPage(pageCount);
@@ -96,10 +98,12 @@ function App() {
     dataArray.forEach((item) => {
       appEmissionsTotal += item;
       //store screentimte total to userCo2.screentime state
-      console.log(userCO2);
-      userCO2.screentime = appEmissionsTotal;
+      //userCO2.screentime = appEmissionsTotal;
     });
-    setUserCO2(appEmissionsTotal);
+    setUserCO2({
+      screentime: appEmissionsTotal,
+    });
+    console.log(userCO2);
   }
 
   return (

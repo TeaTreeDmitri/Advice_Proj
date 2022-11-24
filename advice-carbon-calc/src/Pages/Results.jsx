@@ -87,12 +87,14 @@ function Results(props) {
       <h1>Your year in carbon</h1>
       <div className="results-box">
         <p>
-          In a year your phone and cloud storage alone creates <span>{grandTotal.toFixed(2)}</span> CO2kg per year...<br></br>But what the heck does that mean?
+          In a year your phone and cloud storage alone creates <span>{grandTotal.toFixed(2)}</span> CO2kg per year...
         </p>
+        <p>But what the heck does that mean?</p>
       </div>
       <div className="results-box">
         <p>
-          Well... The average phone in Europe uses <span>{eurAvg}CO2kg</span> per year which means you’re using <span>{span}</span> than the average and polluting <span>{userDiff.toFixed(1)}</span> times that the european average
+          Well... The average phone in Europe uses <span>{eurAvg}CO2kg</span> per year which means you’re using <span>{span}</span> than the average and polluting <span>{userDiff.toFixed(1)}</span> times that the european average!</p>
+          <p>
           You're expectation was <span>{shock}</span> reality! Shocker!
         </p>
       </div>

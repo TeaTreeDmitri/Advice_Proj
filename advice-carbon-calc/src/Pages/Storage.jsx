@@ -52,9 +52,9 @@ function Storage(props) {
     setUserStorage(userStorage);
     totalTheStorage(carbonTotal);
 
-    console.log("totalStorage:", totalStorage);
-    console.log("Total co2 emissions per app:", userStorage);
-    console.log("carbonTotal:", carbonTotal);
+    //console.log("totalStorage:", totalStorage);
+    //console.log("Total co2 emissions per app:", userStorage);
+    //console.log("carbonTotal:", carbonTotal);
     //send data back to app
     props.saveStorage(userStorage);
   }
@@ -66,13 +66,19 @@ function Storage(props) {
       <form onSubmit={handleSubmit}>
 
         <div className="input-box">
-            {props.checked.includes("google") && <GoogleField handleGoogleChange={handleGoogleChange} updatedList={props.updatedList}/>}
+          {props.checked.includes("google") && (
+            <GoogleField handleGoogleChange={handleGoogleChange} updatedList={props.updatedList} />
+          )}
         </div>
         <div className="input-box">
-        {props.checked.includes("icloud") && <IcloudField handleIcloudChange={handleIcloudChange} updatedList={props.updatedList}/>}
+          {props.checked.includes("icloud") && (
+            <IcloudField handleIcloudChange={handleIcloudChange} updatedList={props.updatedList} />
+          )}
         </div>
         <div className="input-box">
-        {props.checked.includes("onedrive") && <OnedriveField handleOndriveChange={handleOnedriveChange} updatedList={props.updatedList}/>}
+          {props.checked.includes("onedrive") && (
+            <OnedriveField handleOndriveChange={handleOnedriveChange} updatedList={props.updatedList} />
+          )}
         </div>
         <div className="input-box">
         {props.checked.includes("dropbox") && <DropboxField handleDropboxChange={handleDropboxChange} updatedList={props.updatedList}/>}

@@ -53,12 +53,11 @@ function App() {
 
   //receive the storage info
   function saveStorage(data) {
-    console.log("saveStorage receives this:", data);
+
     totalStorage(data);
   }
   //total storage info and save to userCO2 obj
   function totalStorage(data) {
-    console.log("totalStorage receives this data:", data);
     let storageEmissionsTotal = 0;
     // obj.values returns us an array of the values from the object this function receives
     let dataAsArray = Object.values(data);
@@ -74,7 +73,6 @@ function App() {
     //increment page count to move to next page
     pageCount++;
     setThisPage(pageCount);
-    console.log(userCO2);
   }
 
   //receive the user expected rank info
@@ -87,11 +85,9 @@ function App() {
 
   //receive the screentime info
   function saveScreenTime(data) {
-    console.log("saveScreenTime receives this:", data);
     totalScreenTime(data);
   }
   function totalScreenTime(data) {
-    console.log("totalScreenTime gets this data:", data);
     let appEmissionsTotal = 0;
     // obj.values returns us an array of the values from the object this function receives
     let dataArray = Object.values(data);
@@ -103,7 +99,8 @@ function App() {
     setUserCO2({...userCO2,
       screentime: appEmissionsTotal,
     });
-    console.log(userCO2);
+    pageCount++;
+    setThisPage(pageCount);
   }
 
   //receive user phone replacement data
@@ -126,7 +123,8 @@ function App() {
         {thisPage === 4 && <Screentime saveScreenTime={saveScreenTime} checked={checked} />}
         {thisPage === 5 && <NewPhone saveNewPhone={saveNewPhone}/>}
         {thisPage === 6 && <Results userCO2={userCO2}/>}
-        {thisPage != 3 && <button onClick={() => changePage()}>Next Page</button>}
+        {thisPage < 3 && <button onClick={() => changePage()}>Next Page</button>}
+        {thisPage > 4 && <button onClick={() => changePage()}>Next Page</button>}
         </div>
         <Footer />
       </div>

@@ -15,7 +15,6 @@ function Screentime(props) {
   let screenTimeTotal = 0;
 
   function totalTheScreenTime(addMe) {
-    console.log("the screenTimeTotal is:", screenTimeTotal);
     screenTimeTotal = screenTimeTotal + addMe;
     setUserScreenTime(screenTimeTotal);
   }
@@ -89,8 +88,6 @@ function Screentime(props) {
     e.preventDefault();
     setUserScreenTime(userScreenTime);
     totalTheScreenTime(screenTimeCarbon);
-    console.log("userScreenTime:", userScreenTime);
-    console.log(screenTimeTotal);
 
     //send data back to app
     props.saveScreenTime(userScreenTime);

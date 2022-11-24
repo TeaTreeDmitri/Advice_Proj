@@ -5,7 +5,6 @@ import IcloudField from "../Components/IcloudField";
 import OnedriveField from "../Components/OnedriveField";
 
 function Storage(props) {
-  console.log(props.checked);
   const [userStorage, setUserStorage] = useState({});
   let carbonTotal = 0;
   let totalStorage = 0;
@@ -52,10 +51,6 @@ function Storage(props) {
     setUserStorage(userStorage);
     totalTheStorage(carbonTotal);
 
-    //console.log("totalStorage:", totalStorage);
-    //console.log("Total co2 emissions per app:", userStorage);
-    //console.log("carbonTotal:", carbonTotal);
-    //send data back to app
     props.saveStorage(userStorage);
   }
 

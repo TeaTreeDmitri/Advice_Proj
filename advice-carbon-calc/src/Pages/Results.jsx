@@ -1,5 +1,4 @@
 function Results(props) {
-  console.log(props.userCO2)
   /*
   ---USER'S TOTAL CO2 
   all values in object added together
@@ -20,7 +19,6 @@ function Results(props) {
   grandTotal = runningTotal + props.userCO2.replace;
 
 
-  console.log("The user's total amount of CO2 is: ", grandTotal);
   
 
 
@@ -31,7 +29,6 @@ function Results(props) {
 
 
   const userDiff = grandTotal / eurAvg;
-  console.log(userDiff);
   if (userDiff > 1) {
     span = "more"
   } else if (userDiff < 1) {
@@ -41,7 +38,7 @@ function Results(props) {
   }
 
 
-  const eurRank1 = eurAvg * 0.5
+
   const eurRank2 = eurAvg * 0.75
   const eurRank3 = eurAvg * 1
   const eurRank4 = eurAvg *1.5
@@ -50,26 +47,31 @@ function Results(props) {
   let userRank = "";
 
   if (grandTotal > eurRank5) {
-    userRank = 5;
+    userRank = 1;
   } else if (grandTotal > eurRank4) {
-    userRank = 4;
+    userRank = 2;
   } else if (grandTotal > eurRank3) {
     userRank = 3;
   } else if (grandTotal > eurRank2) {
-    userRank = eurRank1;
+    userRank = 4;
   } else {
-    userRank = 1;
-  }
+    userRank = 5};
+  
 
   const rankingDiff = userRank - props.userCO2.ranking;
   let shock = "";
+  
+
+  console.log("userRank: ", userRank)
+  console.log("predicted Rank", props.userCO2.ranking)
+  console.log("ranking difference", rankingDiff)
 
   if (rankingDiff < -1) {
-    shock = "wayyyy better";
-  }  else if (rankingDiff === -1 || 0 || 1) {
-    shock = "about right";
-  } else if (rankingDiff > 1 ) {
     shock = "wayyyy worse"
+  }  else if (rankingDiff === -1 || rankingDiff === 0 || rankingDiff ===1) {
+    shock = "about the same as";
+  } else if (rankingDiff > 1 ) {
+    shock = "wayyyy better";
   }
 
  
@@ -91,7 +93,7 @@ function Results(props) {
       <div className="results-box">
         <p>
           Well... The average phone in Europe uses <span>{eurAvg}CO2kg</span> per year which means you’re using <span>{span}</span> than the average and polluting <span>{userDiff.toFixed(1)}</span> times that the european average
-          You're expectation was <span>{shock}</span>  reality! Shocker!
+          You're expectation was <span>{shock}</span> than reality! Shocker!
         </p>
       </div>
       <div className="results-box">

@@ -106,7 +106,7 @@ function App() {
             <Storage saveStorage={saveStorage} checked={checked} />
           </>
         )}
-        {thisPage === 4 && <Screentime saveScreenTime={saveScreenTime} />}
+        {thisPage === 4 && <Screentime saveScreenTime={saveScreenTime} checked={checked} />}
         {thisPage === 5 && <NewPhone />}
         {thisPage === 6 && <Results />}
         {thisPage != 3 && <button onClick={() => changePage()}>Next Page</button>}

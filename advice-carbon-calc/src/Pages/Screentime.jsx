@@ -1,4 +1,15 @@
 import { useState } from "react";
+import TiktokField from "../Components/TikTokField"
+import InstagramField from "../Components/InstagramField";
+import FacebookField from "../Components/FacebookField";
+import SnapchatField from "../Components/SnapchatField";
+import TwitterField from "../Components/TwitterField";
+import YoutubeField from "../Components/YoutubeField";
+import PinterestField from "../Components/PinterestField";
+import LinkedinField from "../Components/LinkedinField";
+import RedditField from "../Components/RedditField";
+
+
 
 function Screentime(props) {
   const [userScreenTime, setUserScreenTime] = useState({});
@@ -12,7 +23,7 @@ function Screentime(props) {
     setUserScreenTime(screenTimeTotal);
   }
 
-  function handleTikTok(e) {
+  function handleTiktok(e) {
     console.log(e.target.value);
     let screenTimeCarbon = e.target.value * 2.63;
     let tikTok = screenTimeCarbon;
@@ -20,12 +31,68 @@ function Screentime(props) {
       return { ...old, tikTok };
     });
   }
-  function handleFacebook(e) {
+  function handleInstagram(e) {
     console.log(e.target.value);
     let screenTimeCarbon = e.target.value * 0.79;
+    let instagram = screenTimeCarbon;
+    setUserScreenTime((old) => {
+      return { ...old, instagram };
+    });
+  }
+  function handleFacebook(e) {
+    console.log(e.target.value);
+    let screenTimeCarbon = e.target.value * 1.05;
     let facebook = screenTimeCarbon;
     setUserScreenTime((old) => {
       return { ...old, facebook };
+    });
+  }
+  function handleSnapchat(e) {
+    console.log(e.target.value);
+    let screenTimeCarbon = e.target.value * 0.87;
+    let snapchat = screenTimeCarbon;
+    setUserScreenTime((old) => {
+      return { ...old, snapchat };
+    });
+  }
+  function handleTwitter(e) {
+    console.log(e.target.value);
+    let screenTimeCarbon = e.target.value * 0.60;
+    let twitter = screenTimeCarbon;
+    setUserScreenTime((old) => {
+      return { ...old, twitter };
+    });
+  }
+  function handleYoutube(e) {
+    console.log(e.target.value);
+    let screenTimeCarbon = e.target.value * 0.46;
+    let youtube = screenTimeCarbon;
+    setUserScreenTime((old) => {
+      return { ...old, youtube };
+    });
+  }
+  function handlePinterest(e) {
+    console.log(e.target.value);
+    let screenTimeCarbon = e.target.value * 1.3;
+    let pinterest = screenTimeCarbon;
+    setUserScreenTime((old) => {
+      return { ...old, pinterest };
+    });
+  }
+  function handleLinkedin(e) {
+    console.log(e.target.value);
+    let screenTimeCarbon = e.target.value * 0.71;
+    let linkedin = screenTimeCarbon;
+    setUserScreenTime((old) => {
+      return { ...old, linkedin };
+    });
+  }
+  function handleReddit(e) {
+    console.log(e.target.value);
+    let screenTimeCarbon = e.target.value * 2.48;
+    let reddit = screenTimeCarbon;
+    setUserScreenTime((old) => {
+      return { ...old, reddit };
     });
   }
 
@@ -42,22 +109,31 @@ function Screentime(props) {
       <h1>Screentime or Greentime?</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-box" id="screentime-input">
-          <label>
-            Daily screen time of app1
-            <input type="number" min="0" max="24" name="hour" id="hour" required />
-            <label htmlFor="hour">Hours</label>
-            <input type="number" min="0" max="59" name="minutes" id="minutes" required onKeyUp={handleTikTok} />
-            <label htmlFor="minutes">Minutes</label>
-          </label>
+          {props.checked.includes("tiktok") && <TiktokField handleTiktok={handleTiktok}/>}
         </div>
         <div className="input-box" id="screentime-input">
-          <label>
-            Daily screen time of app2
-            <input type="number" min="0" max="24" name="hour" id="hour" required />
-            <label htmlFor="hour">Hours</label>
-            <input type="number" min="0" max="59" name="minutes" id="minutes" required onKeyUp={handleFacebook} />
-            <label htmlFor="minutes">Minutes</label>
-          </label>
+          {props.checked.includes("instagram") && <InstagramField handleTiktok={handleInstagram}/>}
+        </div>
+        <div className="input-box" id="screentime-input">
+          {props.checked.includes("facebook") && <FacebookField handleTiktok={handleFacebook}/>}
+        </div>
+        <div className="input-box" id="screentime-input">
+          {props.checked.includes("snapchat") && <SnapchatField handleTiktok={handleSnapchat}/>}
+        </div>
+        <div className="input-box" id="screentime-input">
+          {props.checked.includes("twitter") && <TwitterField handleTiktok={handleTwitter}/>}
+        </div>
+        <div className="input-box" id="screentime-input">
+          {props.checked.includes("youtube") && <YoutubeField handleTiktok={handleYoutube}/>}
+        </div>
+        <div className="input-box" id="screentime-input">
+          {props.checked.includes("pinterest") && <PinterestField handleTiktok={handlePinterest}/>}
+        </div>
+        <div className="input-box" id="screentime-input">
+          {props.checked.includes("linkedin") && <LinkedinField handleTiktok={handleLinkedin}/>}
+        </div>
+        <div className="input-box" id="screentime-input">
+          {props.checked.includes("reddit") && <RedditField handleTiktok={handleReddit}/>}
         </div>
         <button>Done</button>
       </form>
